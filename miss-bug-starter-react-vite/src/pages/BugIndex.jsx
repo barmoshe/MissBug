@@ -68,13 +68,19 @@ export function BugIndex() {
   }
 
   const handleDownloadPDF = async () => {
-    console.log("Ref:", componentRef.current);
     try {
-      const canvas = await html2canvas(componentRef.current);
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "mm", "a4");
-      pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
-      pdf.save("bug_list.pdf");
+      //write bugs to pdf as a text
+      const doc = new jsPDF();
+      doc.text("Bugs List", 10, 10);
+      doc.text("----------------------------", 10, 20);
+      bugs.forEach((bug, idx) => {
+        doc.text(
+          `Bug ${idx + 1}: ${bug.title} - Severity: ${bug.severity}`,
+          10,
+          30 + idx * 10
+        );
+      });
+      doc.save("bugs-list.pdf");
     } catch (error) {
       console.error("Error generating PDF:", error);
     }
