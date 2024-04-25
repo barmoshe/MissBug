@@ -1,0 +1,26 @@
+{
+  "name": "missbug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barmoshe/MissBug.git"
+  },
+  "author": "Bar Moshe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barmoshe/MissBug/issues"
+  },
+  "homepage": "https://github.com/barmoshe/MissBug#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "follow-redirects": "^1.15.6"
+  },
+  "type": "module"
+}
