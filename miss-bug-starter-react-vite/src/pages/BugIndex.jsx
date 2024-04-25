@@ -1,12 +1,15 @@
+import React, { useState, useEffect, useRef } from "react";
 import { bugService } from "../services/bug.service.js";
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js";
 import { BugList } from "../cmps/BugList.jsx";
-import { useState } from "react";
-import { useEffect } from "react";
+
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 export function BugIndex() {
   const [bugs, setBugs] = useState([]);
   const [filterBy, setFilterBy] = useState({});
+  const componentRef = useRef();
 
   useEffect(() => {
     loadBugs();
@@ -24,7 +27,6 @@ export function BugIndex() {
   async function onRemoveBug(bugId) {
     try {
       await bugService.remove(bugId);
-      console.log("Deleted Succesfully!");
       setBugs((prevBugs) => prevBugs.filter((bug) => bug._id !== bugId));
       showSuccessMsg("Bug removed");
     } catch (err) {
@@ -40,7 +42,6 @@ export function BugIndex() {
     };
     try {
       const savedBug = await bugService.save(bug);
-      console.log("Added Bug", savedBug);
       setBugs((prevBugs) => [...prevBugs, savedBug]);
       showSuccessMsg("Bug added");
     } catch (err) {
@@ -54,7 +55,6 @@ export function BugIndex() {
     const bugToSave = { ...bug, severity };
     try {
       const savedBug = await bugService.save(bugToSave);
-      console.log("Updated Bug:", savedBug);
       setBugs((prevBugs) =>
         prevBugs.map((currBug) =>
           currBug._id === savedBug._id ? savedBug : currBug
@@ -67,12 +67,25 @@ export function BugIndex() {
     }
   }
 
+  const handleDownloadPDF = async () => {
+    console.log("Ref:", componentRef.current);
+    try {
+      const canvas = await html2canvas(componentRef.current);
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+      pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
+      pdf.save("bug_list.pdf");
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+    }
+  };
+
   return (
     <main className="bug-index">
       <h3>Bugs App</h3>
       <main>
         <button className="add-btn" onClick={onAddBug}>
-          Add Bug ⛐
+          Add Bug
         </button>
         <input
           type="text"
@@ -86,8 +99,14 @@ export function BugIndex() {
             setFilterBy({ ...filterBy, severity: +ev.target.value })
           }
         />
-
-        <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />
+        <button onClick={handleDownloadPDF}>Download Bug List as PDF</button>
+        <BugList
+          ref={componentRef}
+          id="bug-list"
+          bugs={bugs}
+          onRemoveBug={onRemoveBug}
+          onEditBug={onEditBug}
+        />
       </main>
     </main>
   );
