@@ -1,8 +1,24 @@
 import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
 
 import { bugService } from "./services/bugService.service.js";
 
 const app = express();
+
+const corsOptions = {
+  origin: [
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:3000",
+    "http://localhost:5173",
+    "http://localhost:3000",
+  ],
+  credentials: true,
+};
+// Express Config:
+app.use(express.static("public"));
+app.use(cookieParser());
+app.use(cors(corsOptions));
 
 // Route to retrieve all bugs
 app.get("/api/bug", async (req, res) => {

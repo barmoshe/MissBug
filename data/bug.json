@@ -1,56 +1,65 @@
 [
   {
-    "_id": "P68xy2",
-    "title": "silverfish ",
-    "severity": 2,
-    "createdAt": 1714058333990
-  },
-  {
-    "_id": "X59s3k",
-    "title": "beetle hornet ",
-    "severity": 1,
-    "createdAt": 1714058333991
-  },
-  {
-    "_id": "x55PUj",
-    "title": "termite blackwidow ",
-    "severity": 3,
-    "createdAt": 1714058333991
-  },
-  {
     "_id": "nO2UZJ",
-    "title": "gnat crabspider ",
+    "title": "gnat crabspider",
+    "description": "A small spider resembling a crab, often found in damp areas and known for its agile movements.",
     "severity": 2,
     "createdAt": 1714058333991
   },
   {
     "_id": "oy99NH",
-    "title": "blackwidow ",
+    "title": "blackwidow",
+    "description": "A venomous spider with a distinctive black body and red hourglass marking on its abdomen, known for its potent neurotoxin.",
     "severity": 3,
-    "createdAt": 1714058333991
-  },
-  {
-    "_id": "mDmgJN",
-    "title": "orbweaver ",
-    "severity": 2,
-    "createdAt": 1714058333991
-  },
-  {
-    "_id": "9FGXdd",
-    "title": "aphid bug ",
-    "severity": 3,
-    "createdAt": 1714058333991
-  },
-  {
-    "_id": "aFTFao",
-    "title": "hobo moth ",
-    "severity": 1,
     "createdAt": 1714058333991
   },
   {
     "_id": "q0RDnw",
-    "title": "mantis orbweaver ",
+    "title": "mantis orbweaver",
+    "description": "A type of orb-weaving spider with a body shape resembling a praying mantis, often found in gardens and forests.",
     "severity": 1,
+    "createdAt": 1714058333991
+  },
+  {
+    "_id": "aBcDeF",
+    "title": "tarantula hawk",
+    "description": "A large, solitary wasp known for its painful sting, capable of paralyzing tarantulas to serve as food for its larvae.",
+    "severity": 4,
+    "createdAt": 1714058333991
+  },
+  {
+    "_id": "xYz123",
+    "title": "bullet ant",
+    "description": "An aggressive species of ant with one of the most painful insect stings, likened to being shot with a bullet.",
+    "severity": 5,
+    "createdAt": 1714058333991
+  },
+  {
+    "_id": "pQr456",
+    "title": "bark scorpion",
+    "description": "A small but venomous scorpion commonly found in North America, known for its ability to climb vertical surfaces and hide in bark.",
+    "severity": 3,
+    "createdAt": 1714058333991
+  },
+  {
+    "_id": "sTu789",
+    "title": "assassin bug",
+    "description": "A predatory bug known for its stealthy hunting behavior, often preying on other insects by impaling them with its sharp proboscis.",
+    "severity": 2,
+    "createdAt": 1714058333991
+  },
+  {
+    "_id": "vWx012",
+    "title": "firefly",
+    "description": "A bioluminescent beetle known for its ability to produce light from its abdomen, often used for mating and communication.",
+    "severity": 1,
+    "createdAt": 1714058333991
+  },
+  {
+    "_id": "gHz345",
+    "title": "giant centipede",
+    "description": "A large and aggressive centipede species with powerful venom, known for its rapid movements and ability to capture prey.",
+    "severity": 4,
     "createdAt": 1714058333991
   }
 ]
